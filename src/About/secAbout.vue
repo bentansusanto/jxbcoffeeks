@@ -8,11 +8,10 @@
             <h2>{{head[0]}} <br>{{head[1]}}</h2>
             <div class="row tentang">
                 <div class="col-12 col-md-6 tentang1">
-                    <img :src="content.latar">
+                    <img :src="isi.latar">
                 </div>
                 <div class="col-12 col-md-6 tentang1">
-                    <p>{{content.desc}}</p>
-                    <router-link to="/about" class="button">Read More</router-link>
+                    <p>{{isi.desc[0]}} <br>{{isi.desc[1]}}</p>
                 </div>
             </div>
         </div>
@@ -20,16 +19,12 @@
 </template>
 <script>
 export default {
-    data (){
-        return{
-            title : 'our story',
-            head : ['Lorem ipsum dolor sit amet','consectetur adipisicing elit.'],
-            content : {
-                desc : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad culpa animi iste voluptatem, odit quam quos reiciendis voluptas excepturi officia cum libero iure consequuntur aliquid inventore reprehenderit ratione quis voluptatum.',
-                latar  : require('../assets/image/img-home/bg-about.jpg')
-            }
-        }
-    }
+    props : {
+        title:String,
+        head:Object,
+        isi:Object
+    },
+   
 }
 </script>
 <style scoped>
@@ -53,6 +48,7 @@ export default {
     }
     .tentangs h2{
         font-weight: 600;
+        text-align: center;
     }
     .tentang{
         text-align: center;
@@ -62,17 +58,7 @@ export default {
         color: #a4a4a4;
         font-weight: 400;
     }
-    .button{
-        background-color: #FDDFAA;
-        padding: 8px 10px;
-        border-radius: 5px;
-        color: #090909;
-        text-decoration: none;
-        font-weight: 500;
-    }
-
-        /* Large Desktop */
-    @media only screen and (min-width: 1025px){
+     @media only screen and (min-width: 1025px){
         .tentangs{
             margin-top: 400px;
         }
@@ -100,14 +86,12 @@ export default {
         .tentang1 p{
             padding-top: 30px;
             padding-bottom: 20px;
-            width: 70%;
+            width: 90%;
             margin-left: -50px;
             text-align: left;
             font-size: 1rem;
         }
-        .button{
-            margin-left: -50px;
-        }
+        
     }
         /* Talet & Desktop */
     @media only screen and (max-width: 1024px){
@@ -142,9 +126,7 @@ export default {
             text-align: left;
             font-size: .9rem;
         }
-        .button{
-            margin-left: unset;
-        }
+        
         
     }
         /* Handphone */
@@ -184,9 +166,6 @@ export default {
             text-align: center;
             font-size: .9rem;
         }
-        .button{
-            margin-left: unset;
-        }
-       
+        
     }
 </style>

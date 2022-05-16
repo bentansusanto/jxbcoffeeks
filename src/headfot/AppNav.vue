@@ -10,9 +10,9 @@
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
                         <router-link to="/" class="nav-link">Home</router-link>
-                        <router-link to="/about" class="nav-link">Features</router-link>
-                        <router-link to="/product" class="nav-link">Pricing</router-link>
-                        <router-link to="/contact" class="nav-link">Disabled</router-link>
+                        <router-link to="/about" class="nav-link">About Us</router-link>
+                        <router-link to="/product" class="nav-link">Product</router-link>
+                        <router-link to="/contact" class="nav-link">Contact Us</router-link>
                     </div>
                     </div>
                 </div>

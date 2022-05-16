@@ -7,21 +7,33 @@
             <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
         </div>
     </div>
-    <sec-about/>
+    <sec-about :title="title"  :head="judul"  :isi="content"/>
     <sec-quots/>
     <sec-produk/>
+    <sec-testi/>
 </template>
 <script>
-import secAbout from '../components/secAbout.vue'
-import secQuots from '../components/secQuots.vue'
-import secProduk from '../components/secProduk.vue'
-// import secTesti from '../components/secTesti.vue'
+import secAbout from '../Home/secAbout.vue'
+import secQuots from '../Home/secQuots.vue'
+import secProduk from '../Home/secProduk.vue'
+import secTesti from '../Home/secTesti.vue'
 export default {
     components :{
         secAbout,
         secQuots,
         secProduk,
-        
+        secTesti   
+    },
+    data (){
+        return{
+            title : 'Our Story',
+            judul : ['Lorem ipsum dolor sit amet',
+            'consectetur adipisicing elit.'],
+            content : {
+                desc :  'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad culpa animi iste voluptatem, odit quam quos reiciendis voluptas excepturi officia cum libero iure consequuntur aliquid inventore reprehenderit ratione quis voluptatum.',
+                latar : require ('../assets/image/img-home/bg-about.jpg')
+            }
+        }
     }
 }
 </script>

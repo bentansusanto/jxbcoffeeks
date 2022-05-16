@@ -1,18 +1,17 @@
 <template>
     <app-nav/>
     <router-view/>
-    <app-fot/>
+    <app-foot/>
 </template>
 
 <script>
 import AppNav from './headfot/AppNav.vue'
-import AppFot from './headfot/AppFoot.vue'
-
+import AppFoot from './headfot/AppFoot.vue'
 export default {
   name: 'App',
   components: {
     AppNav,
-    AppFot
+    AppFoot
   }
 }
 </script>
