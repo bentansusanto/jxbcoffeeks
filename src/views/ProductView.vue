@@ -15,8 +15,8 @@
             </div>
             <h2>{{desc}}</h2>
             <div class="row produk">
-                <div v-for="product in data" :key="product.id" class="col-6 col-md-4">
-                    <img :src="getImage(product.image)">
+                <div v-for="product in state.data.data" :key="product.id" class="col-12 col-md-4">
+                    <img :src="'/assets/image/' + product.image">
                     <div class="row price pt-2">
                         <div class="col-6 price1">
                             <h6>{{product.title}}</h6>
@@ -33,37 +33,30 @@
 
 </template>
 <script>
-import axios from '../plugins/axios.js'
-// import { onMounted, reactive } from "vue";
+import axios from 'axios'
+import { onMounted, reactive } from "vue";
 export default {
     data (){
         return{
             title : 'Our Products',
             desc : 'Shop with us on our online store.',
-            baseUrl: 'https://127.0.0.1:8000/api/products',
             data :[]
         }
         },
-        created() {
-      axios.get(`products`)
-          .then(response => {
-            this.data = response.data.data;
-            console.log(response.data.data);  
-          })
-          .catch(error => {
-            console.error(error);
-      })
-    },
-    methods :{
-        getImage(data){
-         // let baseurl = 'baseurl';
-            if (data.match(this.baseUrl)) {
-                return data;
-            } else {
-                return this.baseUrl + data;
-            }
+        setup() {
+        //data users akan disimpan disini
+        const state = reactive({
+        data: {},
+        });
+        //ketika pertama dimuat, akan langsung mengambil data API
+        onMounted(async () => {
+        const { data } = await axios.get("http://127.0.0.1:8000/api/products");
+        state.data = data;
+        });
+        return{
+            state
         }
-    } 
+    },
 
        
 }
@@ -101,7 +94,8 @@ export default {
         text-align: center;
     }
     .produk{
-        margin: 100px auto;
+        margin-top: 100px;
+        margin-bottom: 200px;
         align-items: center;
     }
     .price{

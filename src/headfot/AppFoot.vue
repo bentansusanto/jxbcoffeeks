@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <!-- <div class="bawahs">
+        <div class="bawahs">
             <div class="container bawah">
                     <p>{{alamat}}</p>
                 </div>
@@ -17,7 +17,7 @@
                     Copyright &copy; {{currentYear}} &nbsp;|&nbsp; {{made}} &nbsp;|&nbsp; All Can Deserve
                     </p>
                 </div>
-            </div> -->
+            </div>
     </footer>
 </template>
 <script>
