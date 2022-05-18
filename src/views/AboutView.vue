@@ -66,7 +66,7 @@ export default {
 </script>
 <style scoped>
     .heros{
-        margin-top: -100px;
+        margin-top: -110px;
     }
     .hero{
         background: url('../assets/image/img-about/bg-hero.jpg');

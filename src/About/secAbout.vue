@@ -132,7 +132,7 @@ export default {
         /* Handphone */
     @media only screen and (max-width: 767px){
         .tentangs{
-            margin-top: 380px;
+            margin-top: -80px;
         }
         .title{
             margin-top: -30px;
