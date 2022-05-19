@@ -15,16 +15,11 @@
             </div>
             <h2>{{desc}}</h2>
             <div class="row produk">
-                <div v-for="product in state.data.data" :key="product.id" class="col-12 col-md-4">
+                <div v-for="product in state.data.data" :key="product.id" class="col-12 col-sm-auto col-md-4 col-lg-4 produk1">
                     <img :src="'/assets/image/' + product.image">
-                    <div class="row price pt-2">
-                        <div class="col-6 price1">
-                            <h6>{{product.title}}</h6>
-                        </div>
-                        <div class="col-6 price2">
-                            <p>$ {{product.price}}</p>
-                        </div>
-                    </div>
+                        <h6 class="pt-3">{{product.title}}</h6>
+                        <p>{{product.desc}}</p>
+                        <p>$ {{product.price}}</p>
                 </div>
             </div>
         </div>
@@ -37,25 +32,25 @@ import axios from 'axios'
 import { onMounted, reactive } from "vue";
 export default {
     data (){
-        return{
-            title : 'Our Products',
-            desc : 'Shop with us on our online store.',
-            data :[]
-        }
+            return{
+                title : 'Our Products',
+                desc : 'Shop with us on our online store.',
+                data :[]
+            }
         },
-        setup() {
-        //data users akan disimpan disini
-        const state = reactive({
-        data: {},
-        });
-        //ketika pertama dimuat, akan langsung mengambil data API
-        onMounted(async () => {
-        const { data } = await axios.get("http://127.0.0.1:8000/api/products");
-        state.data = data;
-        });
-        return{
-            state
-        }
+    setup() {
+            //data product akan disimpan disini
+            const state = reactive({
+            data: {},
+            });
+            //ketika pertama dimuat, akan langsung mengambil data API
+            onMounted(async () => {
+            const { data } = await axios.get("http://127.0.0.1:8000/api/products");
+            state.data = data;
+            });
+            return{
+                state
+            }
     },
 
        
@@ -89,21 +84,32 @@ export default {
         text-transform: uppercase;
         font-weight: 500;
     }
+    .produk{
+        margin: 100px auto 200px;
+    }
     .produks h2{
         font-weight: 600;
         text-align: center;
     }
-    .produk{
-        margin-top: 100px;
-        margin-bottom: 200px;
-        align-items: center;
-    }
-    .price{
-        width: 100%;
-        
+    .produk1 img{
+        margin: auto;
+        text-align: center;
     }
     .price2 p{
         font-weight: 600;
+    }
+    .produk1 h6{
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    .produk1 p:nth-child(3){
+        font-size: .8rem;
+        color: #a4a4a4;
+        padding-top: -10px 0;
+    }
+    .produk1 p:nth-child(4){
+        font-size: .9rem;
+        font-weight: 400;
     }
 
     /* Large Desktop */
@@ -131,6 +137,13 @@ export default {
             padding-top: 50px;
             font-size: 2rem;
         }
+        .produk{
+            width: 920px;
+        }
+        .produk1{
+        width: 270px;
+        margin: 10px auto;
+        }
     }
     /* Tablet and Desktop */
     @media only screen and (max-width: 1024px){
@@ -157,6 +170,11 @@ export default {
             padding-top: 50px;
             font-size: 1.8rem;
         }
+        .produk1{
+        width: 270px;
+       
+        margin: 10px auto;
+        }
     }
     /* Handphone */
     @media only screen and (max-width: 767px){
@@ -182,6 +200,10 @@ export default {
         .produks h2{
             padding-top: 50px;
             font-size: 1.5rem;
+        }
+        .produk1{
+            width: 270px;
+            margin: 10px auto;
         }
     }
 </style>
