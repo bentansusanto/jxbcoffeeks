@@ -15,8 +15,8 @@
             </div>
             <h2>{{desc}}</h2>
             <div class="row produk">
-                <div v-for="product in state.data.data" :key="product.id" class="col-12 col-sm-auto col-md-4 col-lg-4 produk1">
-                    <img :src="'/assets/image/' + product.image">
+                <div v-for="product in products" :key="product.id" class="col-12 col-sm-auto col-md-4 col-lg-4 produk1">
+                    <img :src="product.image">
                         <h6 class="pt-3">{{product.title}}</h6>
                         <p>{{product.desc}}</p>
                         <p>$ {{product.price}}</p>
@@ -28,30 +28,49 @@
 
 </template>
 <script>
-import axios from 'axios'
-import { onMounted, reactive } from "vue";
+// import axios from 'axios'
+// import { onMounted, reactive } from "vue";
 export default {
     data (){
             return{
                 title : 'Our Products',
                 desc : 'Shop with us on our online store.',
-                data :[]
+                products :[
+                    {
+                        title : 'Chinnese Tea',
+                        desc : 'Tea Chinnese + Hot Water',
+                        price : 3,
+                        image : require('../assets/image/img-produk/tea.jpg')
+                    },
+                    {
+                        title : 'Coffee Late',
+                        desc : 'Milk + Coffee + Hot Water',
+                        price : 3.25,
+                        image : require('../assets/image/img-produk/coffe-late.jpg')
+                    },
+                    {
+                        title : 'Croissant',
+                        desc : 'Butter + egg + powder + water',
+                        price : 2.45,
+                        image : require('../assets/image/img-produk/bread.jpg')
+                    }, 
+                ]
             }
         },
-    setup() {
+    // setup() {
             //data product akan disimpan disini
-            const state = reactive({
-            data: {},
-            });
+            // const state = reactive({
+            // data: {},
+            // });
             //ketika pertama dimuat, akan langsung mengambil data API
-            onMounted(async () => {
-            const { data } = await axios.get("http://127.0.0.1:8000/api/products");
-            state.data = data;
-            });
-            return{
-                state
-            }
-    },
+    //         onMounted(async () => {
+    //         const { data } = await axios.get("http://127.0.0.1:8000/api/products");
+    //         state.data = data;
+    //         });
+    //         return{
+    //             state
+    //         }
+    // },
 
        
 }

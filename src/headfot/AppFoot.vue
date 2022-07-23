@@ -24,10 +24,10 @@
 export default {
     data (){
         return{
-            alamat : 'Jl. Raja Isa no. 10, Batam Center, Batam City.',
+            alamat : 'Jl. Raja Isa, Batam City, Indonesia',
             socials : [
-                'https://img.icons8.com/material-outlined/24/FDDFAA/instagram-new--v1.png',
-                'https://img.icons8.com/material-outlined/24/FDDFAA/whatsapp--v1.png'
+                'https://img.icons8.com/material-outlined/30/FDDFAA/instagram-new--v1.png',
+                'https://img.icons8.com/material-outlined/30/FDDFAA/whatsapp--v1.png'
             ],
             currentYear : new Date(). getFullYear(),
             made : 'JXB 커피'
